@@ -60,7 +60,7 @@ export default class SectionTwo extends React.Component {
               width: 30,
               marginTop: -5,
               marginLeft: -15,
-              backgroundColor: 'rgb(233,50,74)',
+              backgroundColor: 'yellow',
             }}
             value={this.state.size}
             min={20}
