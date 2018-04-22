@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, Link } from "../components/Button";
+import { Link } from "../components/Button";
 import { Anchor } from "../components/typography";
 
 import logo from "../assets/images/logo.svg";
