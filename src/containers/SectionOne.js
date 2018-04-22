@@ -5,6 +5,8 @@ import { H1 } from "../components/typography";
 
 import * as dinoSVGs from "../assets/images/dinos";
 
+console.log(dinoSVGs);
+
 const Wrapper = styled.div`
   max-width: 720px;
 
@@ -31,43 +33,45 @@ export default class SectionOne extends React.Component {
     const canvas = this.canvas;
     if (canvas.getContext) {
 
-      function setCanvasSize() {
-        const canvasWidth = window.innerWidth;
-        const canvasHeight = window.innerWidth;
-        canvas.width = canvasWidth;
-        canvas.height = canvasHeight;
-      }
-      window.addEventListener("resize", setCanvasSize);
-      setCanvasSize();
+      //create the array of circles that will be animated
+      const dinos = Object.values(dinoSVGs).map(path => {
+        const base_image = new Image();
+        base_image.src = path;
+        return {
+          image: base_image,
+          vx: Math.random() * 2,
+          vy: Math.random() * 2,
+        };
+      });
 
-      var ctx = canvas.getContext("2d");
-
-      //create te container that will hold the boincing balls.
-      var container = {
+      //create the container that will hold the boincing balls.
+      const container = {
         x: 0,
         y: 0,
-        width: window.innerWidth,
-        height: window.innerHeight
       };
 
+      function setCanvasSize() {
+        const canvasWidth = window.innerWidth;
+        const canvasHeight = window.innerHeight;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
 
-      //create the array of circles that will be animated
-      var dinos = [
-        {
-          image: null,
-          x: 500,
-          y: 500,
-          vx: -5,
-          vy: -5
-        }
-      ];
+        dinos.forEach(dino => {
+          dino.x = Math.floor(Math.random() * (canvasWidth - dino.image.width));
+          dino.y = Math.floor(Math.random() * (canvasHeight - dino.image.height));
+        });
 
-      console.log(dinoSVGs[0]);
-      const base_image = new Image();
-      base_image.src = Object.values(dinoSVGs)[0];
-      dinos[0].image = base_image;
-      base_image.onload = function() {
-        console.log(dinos);
+        container.width = canvasWidth;
+        container.height = canvasHeight;
+      }
+
+      window.addEventListener("resize", setCanvasSize);
+
+
+      const ctx = canvas.getContext("2d");
+
+      dinos[dinos.length - 1].image.onload = function() {
+        setCanvasSize();
         requestAnimationFrame(animate);
       };
 
