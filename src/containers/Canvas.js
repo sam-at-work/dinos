@@ -22,14 +22,14 @@ export default class DinoCanvas extends React.Component {
     base_image.onload = () => {
       this.loadedImages++;
       if (this.loadedImages === this.dinos.length && this.hasMounted) {
-        console.log('starting after CDM');
+        console.log("starting after CDM");
         this.startAnimation();
       }
     };
     return {
       image: base_image,
       vx: Math.random() * 2,
-      vy: Math.random() * 2,
+      vy: Math.random() * 2
     };
   });
 
@@ -48,10 +48,14 @@ export default class DinoCanvas extends React.Component {
 
     this.dinos.forEach(dino => {
       if (!dino.x || dino.x > container.width - dino.image.width) {
-        dino.x = Math.floor(Math.random() * (container.width - dino.image.width));
+        dino.x = Math.floor(
+          Math.random() * (container.width - dino.image.width)
+        );
       }
       if (!dino.y || dino.y > container.height - dino.image.height) {
-        dino.y = Math.floor(Math.random() * (container.height - dino.image.height));
+        dino.y = Math.floor(
+          Math.random() * (container.height - dino.image.height)
+        );
       }
     });
   };
@@ -88,21 +92,25 @@ export default class DinoCanvas extends React.Component {
   };
 
   startAnimation = () => {
-    this.setCanvasSize();
-    requestAnimationFrame(this.animate);
-  }
-
-  componentDidMount() {
-    this.hasMounted = true;
     if (this.canvas.getContext) {
       this.ctx = this.canvas.getContext("2d");
 
       window.addEventListener("resize", this.setCanvasSize);
+      this.setCanvasSize();
 
-      if (this.loadedImages === this.dinos.length) {
-        console.log('starting from CDM');
-        this.startAnimation();
-      };
+      this.dinos.forEach(dino => {
+        this.ctx.drawImage(dino.image, dino.x, dino.y);
+      });
+
+      window.setTimeout(this.animate, 100);
+    }
+  };
+
+  componentDidMount() {
+    this.hasMounted = true;
+    if (this.loadedImages === this.dinos.length) {
+      console.log('starting from CDM');
+      this.startAnimation();
     }
   }
 
