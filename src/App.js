@@ -7,6 +7,12 @@ import SectionOne from "./containers/SectionOne";
 import SectionTwo from "./containers/SectionTwo";
 
 class App extends Component {
+
+  componentDidMount() {
+    // Hack to make app scroll to correct page
+    window.setTimeout(() => window.dispatchEvent(new Event('resize')), 0);
+  }
+
   render() {
     let options = {
       sectionClassName:     'section',
