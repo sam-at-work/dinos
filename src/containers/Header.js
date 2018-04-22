@@ -16,7 +16,7 @@ export default function DinoHeader() {
     <HeaderWrapper>
       <img src={logo} alt="Logo" />
       <div style={{ display: "flex", alignItems: "center" }}>
-        <Anchor href="#">The Story</Anchor>
+        <Anchor href="#sectionThree">The Story</Anchor>
         <Anchor href="#">Contact Us</Anchor>
         <Anchor href="#">About Us</Anchor>
         <Link href="#sectionTwo">ADOPT THE DINO</Link>

@@ -15,6 +15,7 @@ export const Button = styled.button`
   border: 3px solid rgb(48,253,47);
   border-radius: 50px;
   
+  &.active,
   &:active,
   &:hover {
     color: rgb(48,253,47);
