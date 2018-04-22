@@ -3,10 +3,7 @@ import styled from "styled-components";
 
 import { H1 } from "../components/typography";
 
-import * as dinoSVGs from "../assets/images/dinos";
 import DinoCanvas from "./Canvas";
-
-console.log(dinoSVGs);
 
 const Wrapper = styled.div`
   position: relative; // needed to make dino canvas appear behind it;
