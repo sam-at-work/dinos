@@ -13,6 +13,11 @@ export const Button = styled.button`
   padding: 0.1em 0.5em;
   border: 3px solid rgb(48,253,47);
   border-radius: 50px;
+  
+  &:active,
+  &:hover {
+    color: rgb(48,253,47);
+  }
 `;
 
 export const Link = Button.withComponent('a');

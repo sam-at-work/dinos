@@ -12,11 +12,20 @@ const Canvas = styled.canvas`
 
 export default class DinoCanvas extends React.Component {
   ctx; // set in componentDidMount;
+  loadedImages = 0;
+  isMonna = false;
 
   //create the array of circles that will be animated
   dinos = Object.values(dinoSVGs).map(path => {
     const base_image = new Image();
     base_image.src = path;
+    base_image.onload = () => {
+      this.loadedImages++;
+      if (this.loadedImages == this.dinos.length && this.isMonna) {
+        console.log('starting after CDM');
+        this.startAnimation();
+      }
+    };
     return {
       image: base_image,
       vx: Math.random() * 1,
@@ -78,15 +87,21 @@ export default class DinoCanvas extends React.Component {
     requestAnimationFrame(this.animate);
   };
 
+  startAnimation = () => {
+    this.setCanvasSize();
+    requestAnimationFrame(this.animate);
+  }
+
   componentDidMount() {
+    this.isMonna = true;
     if (this.canvas.getContext) {
       this.ctx = this.canvas.getContext("2d");
 
       window.addEventListener("resize", this.setCanvasSize);
 
-      this.dinos[this.dinos.length - 1].image.onload = () => {
-        this.setCanvasSize();
-        requestAnimationFrame(this.animate);
+      if (this.loadedImages === this.dinos.length) {
+        console.log('starting from CDM');
+        this.startAnimation();
       };
     }
   }

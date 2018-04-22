@@ -2,17 +2,11 @@
 
 footer,
 header {
-  color: #fff;
-  text-align: center;
   padding: 10px;
 }
 
-header {
-  background-color:rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid #556270;
-}
-
 footer {
+  text-align: center;
   color: #000;
 }
 
@@ -23,11 +17,6 @@ a {
   margin: 0px 25px;
 
   transition: all 0.2s;
-}
-
-a.active,
-a:hover {
-  color: #C44D58;
 }
 
 button {
