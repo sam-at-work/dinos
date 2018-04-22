@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="257px" height="50px" viewBox="0 0 257 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Adopt button</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="top-bar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1085.000000, -61.000000)">
+        <g id="Adopt-button" transform="translate(1048.000000, 54.000000)">
+            <text id="HOW-IT-WORKS-Copy" font-family="Bariol-Bold, Bariol" font-size="30" font-weight="bold" fill="#FFFFFF">
+                <tspan x="51" y="42">ADOPT THE DINO</tspan>
+            </text>
+            <rect id="Rectangle-3" stroke="#16FF00" stroke-width="4" filter="url(#filter-1)" x="39" y="9" width="253" height="46" rx="23"></rect>
+        </g>
+    </g>
+</svg>

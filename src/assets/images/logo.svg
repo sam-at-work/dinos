@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="90px" viewBox="0 0 200 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="option-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-86.000000, -31.000000)">
+        <g id="Group" transform="translate(87.000000, 32.000000)">
+            <text id="R" font-family="Bariol-Bold, Bariol" font-size="48" font-weight="bold" fill="#64FF00">
+                <tspan x="119" y="88">R</tspan>
+            </text>
+            <text id="A" font-family="Bariol-Bold, Bariol" font-size="24" font-weight="bold" fill="#64FF00">
+                <tspan x="88" y="55">A</tspan>
+            </text>
+            <text id="W" font-family="Bariol-Bold, Bariol" font-size="24" font-weight="bold" fill="#64FF00">
+                <tspan x="101" y="72">W</tspan>
+            </text>
+            <text id="R-Copy-3" font-family="Bariol-Bold, Bariol" font-size="48" font-weight="bold" fill="#64FF00">
+                <tspan x="63" y="72">R</tspan>
+            </text>
+            <path d="M155.507824,22.8294965 C143.751389,12.8216805 183.240794,-8.3376665 193.933963,3.50253706 C210.263033,21.5831939 173.50037,57.4447483 152.823402,57.3480569 C136.302533,57.2708006 135.798598,33.166068 120.970307,22.8294965 C116.939796,20.0198896 104.422026,12.5229068 90.5562565,14.4190194 C76.6904868,16.315132 63.2765462,25.7292152 59.5233876,30.5854908 C46.1647906,47.8704066 48.9562951,57.8608333 32.6838351,69.9162924 C29.3229989,72.4061694 25.1322027,73.3626747 21.1417925,73.6924982 C14.1058512,74.2740471 6.9361936,74.0916186 0,72.6177432" id="Path-2" stroke="#00FF27" stroke-width="2"></path>
+        </g>
+    </g>
+</svg>
