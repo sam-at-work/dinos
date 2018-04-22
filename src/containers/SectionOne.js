@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import { H1 } from "../components/typography";
 
+import * as dinoSVGs from "../assets/images/dinos";
+
 const Wrapper = styled.div`
   max-width: 720px;
 
@@ -27,23 +29,75 @@ const Canvas = styled.canvas`
 export default class SectionOne extends React.Component {
   componentDidMount() {
     const canvas = this.canvas;
-    debugger;
     if (canvas.getContext) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
 
-      window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
+      function setCanvasSize() {
+        const canvasWidth = window.innerWidth;
+        const canvasHeight = window.innerWidth;
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+      }
+      window.addEventListener("resize", setCanvasSize);
+      setCanvasSize();
 
       var ctx = canvas.getContext("2d");
 
-      ctx.fillStyle = "rgb(200, 0, 0)";
-      ctx.fillRect(10, 10, 50, 50);
+      //create te container that will hold the boincing balls.
+      var container = {
+        x: 0,
+        y: 0,
+        width: window.innerWidth,
+        height: window.innerHeight
+      };
 
-      ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-      ctx.fillRect(30, 30, 50, 50);
+
+      //create the array of circles that will be animated
+      var dinos = [
+        {
+          image: null,
+          x: 500,
+          y: 500,
+          vx: -5,
+          vy: -5
+        }
+      ];
+
+      console.log(dinoSVGs[0]);
+      const base_image = new Image();
+      base_image.src = Object.values(dinoSVGs)[0];
+      dinos[0].image = base_image;
+      base_image.onload = function() {
+        console.log(dinos);
+        requestAnimationFrame(animate);
+      };
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        dinos.forEach(dino => {
+          ctx.drawImage(dino.image, dino.x, dino.y);
+
+          //time to animate our circles ladies and gentlemen.
+          if (
+            dino.x + dino.vx < container.x ||
+            dino.x + dino.image.width + dino.vx > container.x + container.width
+          ) {
+            dino.vx = -dino.vx;
+          }
+
+          if (
+            dino.y + dino.vy < container.y ||
+            dino.y + dino.image.height + dino.vy >
+              container.y + container.height
+          ) {
+            dino.vy = -dino.vy;
+          }
+
+          dino.x += dino.vx;
+          dino.y += dino.vy;
+        });
+        requestAnimationFrame(animate);
+      }
     }
   }
 
